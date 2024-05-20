@@ -3,7 +3,7 @@ import React from 'react';
 const Register = () => {
     return (
         <div>
-            <div className='h-[609px] w-[414px] p-10 mx-auto  border-blue-400 border-t-4' style={{ background: 'rgba(244, 250, 252, 1)' }} >
+            <div className='h-[609px] w-[414px] p-10 mx-auto border-blue-400 border-t-4 mt-10' style={{ background: 'rgba(244, 250, 252, 1)' }} >
 
 
                 <div className='h-[510px] w-[328px]'>

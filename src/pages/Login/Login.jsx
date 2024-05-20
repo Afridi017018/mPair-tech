@@ -3,7 +3,7 @@ import React from 'react';
 const Login = () => {
     return (
         <div>
-            <div className='w-[414px] p-10 mx-auto  border-blue-400 border-t-4' style={{ background: 'rgba(244, 250, 252, 1)' }} >
+            <div className='w-[414px] p-10 mx-auto  border-blue-400 border-t-4 mt-10' style={{ background: 'rgba(244, 250, 252, 1)' }} >
 
 
                 <div className=' w-[328px]'>
@@ -50,7 +50,7 @@ const Login = () => {
                         </div>
                         <div className='text-sm flex gap-2 justify-center mt-8'>
                             <p style={{color : "rgba(158, 158, 158, 1)"}}>Don’t have an account?</p>
-                            <p style={{color : "rgba(35, 151, 200, 1)"}}>Register Now!</p>
+                            <p className='cursor-pointer' style={{color : "rgba(35, 151, 200, 1)"}}>Register Now!</p>
                         </div>
 
                     </div>
