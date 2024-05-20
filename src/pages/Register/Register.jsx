@@ -47,7 +47,7 @@ const Register = () => {
                         </div>
 
                         <div className='py-2'>
-                            <input type="text" placeholder="Employee ID" name='id' className="input input-bordered rounded-md w-full" required />
+                            <input type="text" placeholder="Employee ID" name='eid' className="input input-bordered rounded-md w-full" required />
                         </div>
 
                         <div className='py-2'>
@@ -55,7 +55,7 @@ const Register = () => {
                         </div>
 
                         <div className='py-2'>
-                            <input type="text" placeholder="Password" name='password' className="input input-bordered rounded-md w-full" required />
+                            <input type="password" placeholder="Password" name='password' className="input input-bordered rounded-md w-full" required />
                         </div>
 
                         <div>
