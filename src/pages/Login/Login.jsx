@@ -20,7 +20,7 @@ const Login = () => {
         setError('');
 
         try {
-            const response = await fetch('http://localhost:4000/api/user/login', {
+            const response = await fetch(`${import.meta.env.VITE_URL}/api/user/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ const Login = () => {
                 // console.log(localStorage.getItem("token"))
                 const token = localStorage.getItem("token")
 
-                const response = await fetch('http://localhost:4000/api/user/user-info', {
+                const response = await fetch(`${import.meta.env.VITE_URL}/api/user/user-info`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
