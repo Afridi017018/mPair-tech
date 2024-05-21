@@ -1,12 +1,19 @@
 import React from 'react';
+import { useContext } from 'react';
 import avatar from "../../../public/avatar.jpg"
+import { AuthContext } from '../../../public/providers/AuthProviders';
 import Sidebar from '../../components/SideBar/SideBar';
 
 const Profile = () => {
+const {user} = useContext(AuthContext)
+
     return (
         <div className='flex max-h-[auto] h-screen'>
             <Sidebar/>
-            <div>
+            
+{
+    user.length > 0 &&
+    <div>
 
 
             <div className='text-xl font-bold m-5'>
@@ -21,37 +28,34 @@ const Profile = () => {
 
                 <div className='my-2'>
                     <p className='text-sm text-gray-400'>Full Name</p>
-                    <h3 className='text-gray-600 font-bold'>Aminul Islam</h3>
+                    <h3 className='text-gray-600 font-bold capitalize'>{user[0].user.name}</h3>
                 </div>
 
                 <div className='my-2'>
                     <p className='text-sm text-gray-400'>Position</p>
-                    <h3 className='text-gray-600 font-bold'>Accounts Manager</h3>
+                    <h3 className='text-gray-600 font-bold capitalize'>{user[0].user.position}</h3>
                 </div>
 
                 <div className='my-3'>
                     <p className='text-sm text-gray-400'>Gender</p>
-                    <h3 className='text-gray-600 font-bold'>Male</h3>
+                    <h3 className='text-gray-600 font-bold capitalize'>{user[0].user.gender}</h3>
                 </div>
 
-                <div className='my-3'>
-                    <p className='text-sm text-gray-400'>Date Of Birth</p>
-                    <h3 className='text-gray-600 font-bold'>12-01-1996</h3>
-                </div>
+    
 
                 <div className='my-3'>
                     <p className='text-sm text-gray-400'>Email</p>
-                    <h3 className='text-gray-600 font-bold'>Aminulislam@gmail.com</h3>
+                    <h3 className='text-gray-600 font-bold'>{user[0].user.email}</h3>
                 </div>
 
                 <div className='my-3'>
                     <p className='text-sm text-gray-400'>Employee ID</p>
-                    <h3 className='text-gray-600 font-bold'>983465</h3>
+                    <h3 className='text-gray-600 font-bold'>{user[0].user.eid}</h3>
                 </div>
 
             </div>
             </div>
-
+}
         </div>
     );
 };

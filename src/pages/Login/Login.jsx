@@ -12,7 +12,7 @@ const Login = () => {
     const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
-    const { login } = useContext(AuthContext);
+    const { login, setUser } = useContext(AuthContext);
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -35,6 +35,20 @@ const Login = () => {
                 localStorage.setItem("token",data.token)
                 login();
                 navigate('/');
+
+                // console.log(localStorage.getItem("token"))
+                const token = localStorage.getItem("token")
+
+                const response = await fetch('http://localhost:4000/api/user/user-info', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    authorization: `Bearer ${token}`,
+                },
+               
+            });
+            const test = await response.json();
+            setUser([test])
                 
             }
 
