@@ -27,19 +27,21 @@ const NavBar = () => {
                     <div className="flex-none gap-2">
 
                         <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                {
-                                    isAuthenticated ?
-                                    <div className="w-10 rounded-full">
-                                    <img alt="Tailwind CSS Navbar component" src={avatar} />
-                                </div>
-                                :
-                                <p className='text-white px-2 py-1 rounded border border-white' onClick={()=> navigate("/")}>Login</p>
-                                }
-                            </div>
+
+                            {
+                                isAuthenticated ?
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                            <img alt="Tailwind CSS Navbar component" src={avatar} />
+                                        </div>
+                                    </div>
+                                    :
+                                    <p className='text-white px-2 py-1 rounded border border-white cursor-pointer' onClick={() => navigate("/")}>Login</p>
+                            }
+
                             <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                                 <li>
-                                    <a className="justify-between">
+                                    <a onClick={()=> navigate('/')} className="justify-between">
                                         My Profile
                                     </a>
                                 </li>

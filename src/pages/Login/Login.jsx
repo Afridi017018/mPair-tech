@@ -12,7 +12,7 @@ const Login = () => {
     const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
-    const {login} = useContext(AuthContext);
+    const { login } = useContext(AuthContext);
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -30,10 +30,12 @@ const Login = () => {
 
             const data = await response.json();
 
-            if (data.message === "Login Successful !"){
+            if (data.message === "Login Successful !") {
                 toast.success(data.message)
-                 login();
-                navigate('/')
+                localStorage.setItem("token",data.token)
+                login();
+                navigate('/');
+                
             }
 
             else {
@@ -98,7 +100,7 @@ const Login = () => {
 
                     <div className='text-sm flex gap-2 justify-center mt-8'>
                         <p style={{ color: "rgba(158, 158, 158, 1)" }}>Don’t have an account?</p>
-                        <p className='cursor-pointer' style={{ color: "rgba(35, 151, 200, 1)" }}>Register Now!</p>
+                        <p className='cursor-pointer' style={{ color: "rgba(35, 151, 200, 1)" }} onClick={() => navigate("/register")} >Register Now!</p>
                     </div>
                 </div>
             </div>

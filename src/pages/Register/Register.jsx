@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const Register = () => {
+
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: '',
         gender: '',
@@ -40,6 +43,7 @@ const Register = () => {
             if (data.message === "Registered Successfully !!!") {
                 toast.dismiss()
                 toast.success(data.message)
+                navigate("/")
             }
             else {
                 toast.dismiss()
