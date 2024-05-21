@@ -1,9 +1,14 @@
 import React from 'react';
 import avatar from "../../../public/avatar.jpg"
+import Sidebar from '../../components/SideBar/SideBar';
 
 const Profile = () => {
     return (
-        <div>
+        <div className='flex max-h-[auto] h-screen'>
+            <Sidebar/>
+            <div>
+
+
             <div className='text-xl font-bold m-5'>
                 <h3 className='text-gray-600'>Profile Information</h3>
             </div>
@@ -45,6 +50,8 @@ const Profile = () => {
                 </div>
 
             </div>
+            </div>
+
         </div>
     );
 };

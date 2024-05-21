@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { AuthContext } from '../../../public/providers/AuthProviders';
+
 
 const Login = () => {
     const [employeeID, setEmployeeID] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+
+    const navigate = useNavigate();
+    const {login} = useContext(AuthContext);
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -22,8 +29,17 @@ const Login = () => {
             });
 
             const data = await response.json();
-            toast.success(data.message)
-            
+
+            if (data.message === "Login Successful !"){
+                toast.success(data.message)
+                 login();
+                navigate('/')
+            }
+
+            else {
+                toast.error(data.message)
+            }
+
         } catch (err) {
             setError('An error occurred during login. Please try again later.');
         } finally {

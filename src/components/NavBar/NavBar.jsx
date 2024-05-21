@@ -1,8 +1,21 @@
 import React from 'react';
 import logo from '../../../public/logo.png'
 import avatar from '../../../public/avatar.jpg'
+import { useContext } from 'react';
+import { AuthContext } from '../../../public/providers/AuthProviders';
+import { useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
+
+    const { logout, isAuthenticated } = useContext(AuthContext)
+
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout();
+        navigate("/");
+    }
+
     return (
         <div>
 
@@ -15,18 +28,24 @@ const NavBar = () => {
 
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
+                                {
+                                    isAuthenticated ?
+                                    <div className="w-10 rounded-full">
                                     <img alt="Tailwind CSS Navbar component" src={avatar} />
                                 </div>
+                                :
+                                <p className='text-white px-2 py-1 rounded border border-white' onClick={()=> navigate("/")}>Login</p>
+                                }
                             </div>
                             <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                                 <li>
                                     <a className="justify-between">
-                                        Profile
+                                        My Profile
                                     </a>
                                 </li>
-                                <li><a>Settings</a></li>
-                                <li><a>Logout</a></li>
+                                <li>
+                                    <a onClick={handleLogout}>Logout</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
